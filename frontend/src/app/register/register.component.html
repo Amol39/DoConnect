@@ -1,0 +1,37 @@
+<div class="background">
+  <app-nav [isHome]="false"></app-nav>
+  <app-title subtitle="Why you are Waiting, Join Us Now" title="Welcome To doConnect"></app-title>
+  <div style="max-width: 20%; max-height: 20%; margin-left: 75%; top: 30%; position: absolute;">
+    <mat-card>
+      <mat-card-title style="margin-left: 30%">Register</mat-card-title>
+      <mat-card-content>
+        <div style="display: flex; justify-content: center; align-items: center">
+          <form #registrationForm="ngForm" (ngSubmit)="register()" novalidate>
+            <mat-form-field>
+              <mat-label>Name</mat-label>
+              <input type="text" name="name" matInput [(ngModel)]="name" required>
+              <mat-error *ngIf="registrationForm.controls['name'].errors?.['required']">Name is required.</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Email</mat-label>
+              <input type="email" name="email" matInput [(ngModel)]="email" (ngModelChange)="email = $event.toLowerCase()" required pattern="^[a-zA-Z][a-zA-Z0-9._%+-]*@gmail\.com$">
+              <mat-error *ngIf="registrationForm.controls['email'].errors?.['required']">Email is required.</mat-error>
+              <mat-error *ngIf="registrationForm.controls['email'].errors?.['pattern']">Invalid email format or not a Gmail address.</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Password</mat-label>
+              <input type="password" name="password" matInput [(ngModel)]="password" required minlength="6" maxlength="15">
+              <mat-error *ngIf="registrationForm.controls['password'].errors?.['required']">Password is required.</mat-error>
+              <mat-error *ngIf="registrationForm.controls['password'].errors?.['minlength']">Password must be at least 6 characters long.</mat-error>
+              <mat-error *ngIf="registrationForm.controls['password'].errors?.['maxlength']">Password cannot exceed 15 characters.</mat-error>
+            </mat-form-field>
+            <button mat-raised-button color="primary" style="margin-top: 5%; margin-left: 30%" type="submit"
+                    [disabled]="registrationForm.invalid">
+              Register
+            </button>
+          </form>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
