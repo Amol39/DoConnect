@@ -50,7 +50,7 @@ Once the backend servers and frontend development server are running, you can ac
 **Chat Section**
 ![Chat page](https://github.com/Amol39/DoConnect/assets/86824259/c1f3b6f8-c504-4be7-a24d-62e66d51f471)
 
-
+  
 
 
 
